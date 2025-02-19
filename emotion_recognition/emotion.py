@@ -40,9 +40,7 @@ while True:
         preds = model.predict(reshaped_face)[0]
         emotion_idx = preds.argmax()
         emotion = emotion_labels[emotion_idx]
-
-        # Draw rectangle around face and label with predicted emotion
-        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2) # detect the face (draw a rectangle)
         cv2.putText(frame, emotion, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 0, 255), 2)
 
     # Display the resulting frame
